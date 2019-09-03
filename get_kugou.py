@@ -10,6 +10,7 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.89 "
                   "Safari/537.36"
 }
+dirname=''#path to save the music
  
  
 def get_page(url):
@@ -36,7 +37,7 @@ def get_songs(data):
             url = 'https://music.163.com/song/media/outer/url?id='
             req = requests.get(url + ID, headers=headers, allow_redirects=False)
             musicLink = req.headers['Location']
-            urllib.request.urlretrieve(musicLink, './music/' + i[1] + '.mp3')
+            urllib.request.urlretrieve(musicLink, dirname + i[1] + '.mp3')
             print("Dend Downing + "+i[1])
  
  
